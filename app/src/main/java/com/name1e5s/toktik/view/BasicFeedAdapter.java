@@ -13,18 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.name1e5s.toktik.BasicActivity;
-import com.name1e5s.toktik.MainActivity;
 import com.name1e5s.toktik.R;
 import com.name1e5s.toktik.VideoActivity;
 import com.name1e5s.toktik.model.Feed;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class BasicFeedAdapter extends RecyclerView.Adapter<BasicFeedAdapter.VH>{
+public class BasicFeedAdapter extends RecyclerView.Adapter<BasicFeedAdapter.VH> {
     private static final int W = 875;
     private static final int H = 492;
     private int realW;
@@ -53,10 +49,10 @@ public class BasicFeedAdapter extends RecyclerView.Adapter<BasicFeedAdapter.VH>{
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        if(mList.size() != 0) {
+        if (mList.size() != 0) {
             Feed feed = mList.get(position);
             holder.descriptionTextView.setText(feed.getDescription());
-            String text = "\uD83D\uDC68\u200D\uD83E\uDDB3：" + feed.getNickname() + " ♥ " + String.valueOf(feed.getLikecount());
+            String text = "\uD83D\uDC68\u200D\uD83E\uDDB3：" + feed.getNickname() + " ♥ " + feed.getLikecount();
             holder.likeTextView.setText(text);
             Glide.with(mContext).load(feed.getAvatar()).into(holder.basicImageView);
             holder.itemView.setOnClickListener(new View.OnClickListener() {

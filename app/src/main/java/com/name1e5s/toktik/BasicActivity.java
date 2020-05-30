@@ -1,11 +1,11 @@
 package com.name1e5s.toktik;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
 
 import com.name1e5s.toktik.model.Config;
 import com.name1e5s.toktik.model.Feed;
@@ -57,7 +57,7 @@ public class BasicActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call<List<Feed>> call, @NotNull Response<List<Feed>> response) {
                 List<Feed> feedList = response.body();
-                if(feedList == null) {
+                if (feedList == null) {
                     return;
                 }
                 adapter.setmList(feedList);

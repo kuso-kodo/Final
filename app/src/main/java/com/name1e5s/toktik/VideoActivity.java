@@ -1,12 +1,12 @@
 package com.name1e5s.toktik;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.widget.MediaController;
+import android.view.View;
 import android.widget.VideoView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class VideoActivity extends AppCompatActivity {
     private VideoView videoView;
@@ -29,6 +29,20 @@ public class VideoActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 finish();
+            }
+        });
+        videoView.setOnClickListener(new View.OnClickListener() {
+            private boolean pause = false;
+
+            @Override
+            public void onClick(View v) {
+                if (pause) {
+                    pause = false;
+                    videoView.start();
+                } else {
+                    pause = true;
+                    videoView.pause();
+                }
             }
         });
         videoView.start();
